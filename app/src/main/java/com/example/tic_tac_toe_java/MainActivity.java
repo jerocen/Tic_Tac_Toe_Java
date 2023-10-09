@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -166,9 +167,55 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
-
-
     }
+
+    private void performAction(ImageView imageview, int selectedBoxPosition)
+    {
+        boxPositions[selectedBoxPosition] = playerTurn;
+
+        if(playerTurn == 1)
+        {
+            imageview.setImageResource(R.drawable.equis);
+
+            if(checkPlayerWin())
+            {
+                WinDialog winDialog = new WinDialog(MainActivity.this, playerOneName.getText().toString() + "Has ganado el juego.", MainActivity.this);
+                winDialog.show();
+            }
+            else if(totalSelectedBoxes == 9)
+            {
+                WinDialog winDialog = new WinDialog(MainActivity.this, "Its a draw", MainActivity.this);
+                winDialog.show();
+            }
+            else
+            {
+
+            }
+        }
+    }
+
+    private void changePlayerTurn(int currentPlayerTurn)
+    {
+        playerTurn = playerTurn;
+    }
+
+    private boolean checkPlayerWin()
+    {
+        boolean response = false;
+
+        for(int i=0; i<combinationsList.size(); i++)
+        {
+            final int [] combination = combinationsList.get(i);
+
+            if(boxPositions[combination[0]] == playerTurn && boxPositions[combination[1]] == playerTurn && boxPositions[combination[2]] == playerTurn)
+            {
+                response = true;
+            }
+        }
+
+        return response;
+    }
+
     private boolean isBoxSelectable(int boxPosition)
     {
         boolean response = false;
