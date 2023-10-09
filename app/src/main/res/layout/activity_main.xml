@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -21,6 +22,7 @@
             android:background="#3f23aa">
 
             <TextView
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -49,6 +51,7 @@
             android:background="#3f23aa">
 
             <TextView
+                android:maxLines="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Jugador Dos"
@@ -89,6 +92,7 @@
             >
 
             <View
+                android:id="@+id/image1"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="10dp"
@@ -102,6 +106,7 @@
                 />
 
             <View
+                android:id="@+id/image2"
                 android:layout_width="120dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="5dp"
@@ -114,6 +119,7 @@
                 />
 
             <View
+                android:id="@+id/image3"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="10dp"
@@ -137,6 +143,7 @@
             >
 
             <View
+                android:id="@+id/image4"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="10dp"
@@ -150,6 +157,7 @@
                 />
 
             <View
+                android:id="@+id/image5"
                 android:layout_width="120dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="5dp"
@@ -162,6 +170,7 @@
                 />
 
             <View
+                android:id="@+id/image6"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="10dp"
@@ -184,6 +193,7 @@
             >
 
             <View
+                android:id="@+id/image7"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="10dp"
@@ -197,6 +207,7 @@
                 />
 
             <View
+                android:id="@+id/image8"
                 android:layout_width="120dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="5dp"
@@ -209,6 +220,7 @@
                 />
 
             <View
+                android:id="@+id/image9"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="10dp"

@@ -48,9 +48,11 @@
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
             android:adjustViewBounds="true"
-            android:src="@drawable" />
+            android:src="@drawable/equis" />
 
         <EditText
+            android:inputType="text"
+            android:maxLines="1"
             android:id="@+id/playerOneName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,6 +87,8 @@
             android:src="@drawable/circulo" />
 
         <EditText
+            android:inputType="text"
+            android:maxLines="1"
             android:id="@+id/playerTwoName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
