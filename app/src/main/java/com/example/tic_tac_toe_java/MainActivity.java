@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if(isBoxSelectable(0))
                 {
-
+                    performAction(ImageView)v, 0;
                 }
             }
         });
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if(isBoxSelectable(1))
                 {
-
+                    performAction(ImageView)v, 1;
                 }
             }
         });
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if(isBoxSelectable(2))
                 {
-
+                    performAction(ImageView)v, 2;
                 }
             }
         });
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if(isBoxSelectable(3))
                 {
-
+                    performAction(ImageView)v, 3;
                 }
             }
         });
@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if(isBoxSelectable(4))
                 {
-
+                    performAction(ImageView)v, 4;
                 }
             }
         });
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if(isBoxSelectable(5))
                 {
-
+                    performAction(ImageView)v, 5;
                 }
             }
         });
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if(isBoxSelectable(6))
                 {
-
+                    performAction(ImageView)v, 6;
                 }
             }
         });
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if(isBoxSelectable(7))
                 {
-
+                    performAction(ImageView)v, 7;
                 }
             }
         });
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity
             {
                 if(isBoxSelectable(8))
                 {
-
+                    performAction(ImageView)v, 8;
                 }
             }
         });
@@ -180,16 +180,41 @@ public class MainActivity extends AppCompatActivity
             if(checkPlayerWin())
             {
                 WinDialog winDialog = new WinDialog(MainActivity.this, playerOneName.getText().toString() + "Has ganado el juego.", MainActivity.this);
+                winDialog.setCancelable(false);
                 winDialog.show();
             }
             else if(totalSelectedBoxes == 9)
             {
                 WinDialog winDialog = new WinDialog(MainActivity.this, "Its a draw", MainActivity.this);
+                winDialog.setCancelable(false);
                 winDialog.show();
             }
             else
             {
+                changePlayerTurn(2);
+                totalSelectedBoxes++;
+            }
+        }
+        else
+        {
+            imageview.setImageResource(R.id.circuloazul);
 
+            if(checkPlayerWin())
+            {
+                WinDialog winDialog = new WinDialog(MainActivity.this, playerOneName.getText().toString() + "Has ganado el juego.", MainActivity.this);
+                winDialog.setCancelable(false);
+                winDialog.show();
+            }
+            else if(selectedBoxPosition == 9)
+            {
+                WinDialog winDialog = new WinDialog(MainActivity.this, "Its a draw", MainActivity.this);
+                winDialog.setCancelable(false);
+                winDialog.show();
+            }
+            else
+            {
+                changePlayerTurn(1);
+                totalSelectedBoxes++;
             }
         }
     }
@@ -197,6 +222,17 @@ public class MainActivity extends AppCompatActivity
     private void changePlayerTurn(int currentPlayerTurn)
     {
         playerTurn = playerTurn;
+
+        if(playerTurn == 1)
+        {
+            playerOneLayout.setBackgroundResource(R.drawable.round_back_blue_border);
+            playerTwoLayout.setBackgroundResource(R.drawable.round_back_dark_border);
+        }
+        else
+        {
+            playerTwoLayout.setBackgroundResource(R.drawable.round_back_blue_border);
+            playerOneLayout.setBackgroundResource(R.drawable.round_back_dark_border);
+        }
     }
 
     private boolean checkPlayerWin()
@@ -226,5 +262,23 @@ public class MainActivity extends AppCompatActivity
         }
 
         return response;
+    }
+    public void restartMatch()
+    {
+        boxPositions = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+        playerTurn =1;
+
+        totalSelectedBoxes = 1;
+
+        image1.setImageResource(R.drawable.transparent_back);
+        image2.setImageResource(R.drawable.transparent_back);
+        image3.setImageResource(R.drawable.transparent_back);
+        image4.setImageResource(R.drawable.transparent_back);
+        image5.setImageResource(R.drawable.transparent_back);
+        image6.setImageResource(R.drawable.transparent_back);
+        image7.setImageResource(R.drawable.transparent_back);
+        image8.setImageResource(R.drawable.transparent_back);
+        image9.setImageResource(R.drawable.transparent_back);
     }
 }

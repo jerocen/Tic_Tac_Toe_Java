@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import java.text.BreakIterator;
+
 public class WinDialog extends Dialog {
 
     private final String message;
@@ -30,6 +32,7 @@ public class WinDialog extends Dialog {
         final TextView messageText = findViewById(R.id.messageTxt);
         final Button startAgainBtn = findViewById(R.id.startAgainBtn);
 
+
         messageTxt.setText(message);
 
         startAgainBtn.setOnClickListener(new View.OnClickListener()
@@ -37,7 +40,8 @@ public class WinDialog extends Dialog {
             @Override
             public void onClick(View v)
             {
-
+                mainActivity.restartMatch();
+                dismiss();
             }
         });
     }
